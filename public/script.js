@@ -9,6 +9,13 @@ function enviarMensaje() {
   }
 }
 
+// Detectar Enter en el campo de texto
+document.getElementById('mensaje').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') {
+    enviarMensaje();
+  }
+});
+
 socket.on('mensaje', (msg) => {
   const chat = document.getElementById('chat');
   const p = document.createElement('p');
